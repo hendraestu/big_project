@@ -7,8 +7,8 @@ from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:hendra24@localhost/bigpro'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# app.config["SQLALCHEMY_DATABASE_URI"] = 'mariadb://root:hendra24@localhost/bigpro'
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:postgres@localhost/'
 
 db = SQLAlchemy(app)

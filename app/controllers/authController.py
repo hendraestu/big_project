@@ -10,7 +10,7 @@ ma = Marshmallow(app)
 
 class UserSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'name', 'username', 'password', 'role')
+        fields = ('id', 'name', 'username', 'password')
 
 
 # init schema

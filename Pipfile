@@ -17,7 +17,8 @@ flask-marshmallow = "*"
 flask-dotenv = "*"
 flask-cors = "*"
 mysql-client = "*"
-tensorflow-cpu = "==2.3.3"
+pymysql = "*"
+tensorflow-cpu = "*"
 
 [dev-packages]
 

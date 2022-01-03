@@ -6,8 +6,6 @@ class Users(db.Model):
     username = db.Column(db.String(100), unique=True)
     name = db.Column(db.String(100))
     password = db.Column(db.Text(100))
-    role = db.Column(db.Enum('user', 'admin',
-                     nullable=False, server_default="user", name='role_type'))
 
     def __init__(self, username, name):
         self.username = username
