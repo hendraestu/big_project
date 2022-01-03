@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+    
+    <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='src/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/css/animated.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/css/owl.css')}}">
+</head>
+<body>
+  {%include 'preloader.html'%}
+  {%include 'navbar.html'%}
+    {%block content%}
+
+    {%endblock%}
+  {%include 'footer.html'%}
+  <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='vendor/bootstrap/js /bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for('static',filename='src/js/owl-carousel.js')}}"></script>
+  <script src="{{url_for('static',filename='src/js/animation.js')}}"></script>
+  <script src="{{url_for('static',filename='src/js/imagesloaded.js')}}"></script>
+  <script src="{{url_for('static',filename='src/js/custom.js')}}"></script>
+</body>
+</html>

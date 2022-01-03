@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="container">
+  <div class="container">
+    <div class="dropdown" style="padding-top: 150px;">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+      <div class="row row-cols-2" style="padding-top: 10px;">
+        <div class="col" style="align-items: center;">
+          <div class="card" style="width: 18rem;">
+              <img src="{{url_for('static',filename='images/ambilGambar.png')}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+              <img src="{{url_for('static',filename='images/galeri.png')}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  
+  <button type="button" class="btn btn-primary" style="justify-items: center;">Submit</button>
+</div>
+  
+{%endblock%}

@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<div id="services" class="services section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <img src="{{url_for('static',filename='images/nadiem.png')}}" alt="">
+          <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h6>Daftar</h6>
+            <h4>Siswa yang sudah mendapat <em>Kuota</em></h4>
+            <div class="line-dec"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Sekolah</th>
+                <th scope="col">email</th>
+                <th scope="col">Nomor</th>
+                <th scope="col">Perdana</th>
+                <th scope="col">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+                {%for no, i in data%}
+              <tr>
+                <th scope="row">{{no}}</th>
+                <td>{{i.nama}}</td>
+                <td>{{i.sekolah}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.nomor}}</td>
+                <td>{{i.perdana}}</td>
+                <td><button type="button" class="btn btn-warning"><a href="/update/{{i.id}}">Edit</a></button> | <button type="button" class="btn btn-danger"><a href="/delete/{{i.id}}">delete</a></button></td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+
+{%endblock%}
