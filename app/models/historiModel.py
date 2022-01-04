@@ -7,12 +7,12 @@ class Histori(db.Model):
     kelas = db.Column(db.String(100))
     tanggal = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     hasilSenang = db.Column(db.String(100))
-    hasilSedih = db.Column(db.String(100))
+    hasilBiasa = db.Column(db.String(100))
     id_user = db.Column(db.String(50))
 
-    def __init__(self, kelas, tanggal, hasilSenang, id_user, hasilSedih):
+    def __init__(self, kelas, tanggal, hasilSenang, id_user, hasilBiasa):
         self.kelas = kelas
         self.tanggal = tanggal
         self.hasilSenang = hasilSenang
-        self.hasilSedih = hasilSedih
+        self.hasilBiasa = hasilBiasa
         self.id_user = id_user

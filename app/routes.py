@@ -1,3 +1,4 @@
+from flask.templating import render_template
 from app import app
 from flask import request
 from app.controllers import detekController, authController, dosenController
@@ -24,6 +25,7 @@ def signUp():
         print("melihat semua user")
     elif request.method == 'POST':
         return authController.signUp()
+
 
 @app.route('/signin/', methods=['POST'])
 def signIn():

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b0b17ad333d65174b15fbc8dca46cdc3b37ffb7507cf00a3986f5e285305bee7"
+            "sha256": "f9d6edb8dfb28831d9065f0e013a64d312dd980f0cbcfbc244d877a57033b376"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -450,6 +450,14 @@
             "index": "pypi",
             "version": "==3.14.1"
         },
+        "marshmallow-sqlalchemy": {
+            "hashes": [
+                "sha256:1521b129564444648c523a38f6446c137f1aae5c9c7de1ec151d5ebf03fd407d",
+                "sha256:a11fdb628e78c70853646cd7d6d56e07fd56cc702e9675f9abb34832ea055ffe"
+            ],
+            "index": "pypi",
+            "version": "==0.27.0"
+        },
         "mysql-client": {
             "hashes": [
                 "sha256:9e378295e1a565133d4e392ad7e0104a57fcbaf06a1ac9799af8596fa5293cb3",
@@ -483,7 +491,7 @@
                 "sha256:e41e8951749c4b5c9a2dc5fdbc1a4eec6ab2a140fdae9b460b0f557eed870f4d",
                 "sha256:f71d57cc8645f14816ae249407d309be250ad8de93ef61d9709b45a0ddf4050c"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_version < '3.10' and platform_machine != 'aarch64' and platform_machine != 'arm64'",
             "version": "==1.22.0"
         },
         "oauthlib": {

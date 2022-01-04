@@ -13,4 +13,8 @@ def ambil():
 def histori():
     return render_template('riwayat.html')
 
+# @app.route('/signup/', methods=['GET', 'POST'])
+# def signUp():
+#     return render_template('register.html')
+
 

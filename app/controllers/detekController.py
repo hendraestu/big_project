@@ -11,6 +11,7 @@ import pandas as pd
 import urllib.request
 import os
 from werkzeug.utils import secure_filename
+from app.models.historiModel import db, Histori
 
 
 UPLOAD_FOLDER = 'images/'
@@ -73,26 +74,25 @@ def load_gambar():
 
 
 def result():
-    if 'image' not in request.files:
+    if 'image[]' not in request.files:
         resp = jsonify({'msg': "No body image attached in request"})
         resp.status_code = 501
         return resp
-    images = request.files.getlist('image')
+
+    # # print(image.filename)
+    # if image.filename == '':
+    #     resp = jsonify({'msg': "No file image selected"})
+    #     resp.status_code = 404
+    #     return resp
+    error = {}
+    # success = False
+
+    images = request.files.getlist('image[]')
     
     for image in images:
-
-        # print(image.filename)
-        if image.filename == '':
-            resp = jsonify({'msg': "No file image selected"})
-            resp.status_code = 404
-            return resp
-        error = {}
-        success = False
-
-
         if image and allowed_file(image.filename):
             filename = secure_filename(image.filename)
-            image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            image.save(os.path.join(app.config['UPLOAD_FOLDER'], image.filename))
             success = True
             print('ini filename', filename)
         else:
@@ -117,8 +117,8 @@ def result():
                 return jsonify({
                     'status': 200,
                     'msg': "Success get predict emotion",
-                    'senang': output[0],
-                    'biasa':output[1]
+                    'eksSenang': output[0],
+                    'eksBiasa': output[1]
                 })
             except Exception as e:
                 resp = {

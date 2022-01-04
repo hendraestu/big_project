@@ -10,7 +10,7 @@ ma = Marshmallow(app)
 
 class UserSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'name', 'username', 'password')
+        fields = ('id', 'name', 'username', 'password', 'role')
 
 
 # init schema
@@ -36,15 +36,19 @@ def updateUser(id):
     return user_schema.jsonify({"msg": "Success update user", "status": 200, "data": result})
 
 def signUp():
-    name = request.form['name']
-    username = request.form['username']
-    password = request.form['password']
-
-    newUser = Users(name, username)
-    newUser.setPassword(password)
-    db.session.add(newUser)
-    db.session.commit()
-    user = user_schema.dump(newUser)
+    if request.method == 'POST':
+        name = request.form['name']
+        username = request.form['username']
+        password = request.form['password']
+        try:
+            newUser = Users(name, username)
+            newUser.setPassword(password)
+            db.session.add(newUser)
+            db.session.commit()
+            user = user_schema.dump(newUser)
+        except Exception as e:
+            print("Failed to add data.")
+            print(e)
     return jsonify({"msg": "Success update user", "status": 200, "data": user})
 
 def signIn():
