@@ -12,6 +12,16 @@ import urllib.request
 import os
 from werkzeug.utils import secure_filename
 from app.models.historiModel import db, Histori
+from flask_marshmallow import Marshmallow
+
+ma = Marshmallow(app)
+
+class HistoriSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'kelas', 'tanggal', 'hasilSenang', 'hasilBiasa', 'id_user')
+
+histori_schema = HistoriSchema()
+historis_schema = HistoriSchema(many=True)
 
 
 UPLOAD_FOLDER = 'images/'
@@ -114,7 +124,8 @@ def result():
                 # print(filename)
                 os.remove(UPLOAD_FOLDER+'/'+filename)
 
-                return jsonify({
+
+                return output,jsonify({
                     'status': 200,
                     'msg': "Success get predict emotion",
                     'eksSenang': output[0],
@@ -131,3 +142,11 @@ def result():
                 error = jsonify(resp)
                 error.status_code = 500
                 return error
+    
+    kelas = request.form['kelas']
+    hasilSenang = [output[0]]
+    hasilBiasa = [output[1]]
+
+    newHistori = Histori(kelas, hasilSenang, hasilBiasa)
+    db.session.add(newHistori)
+    db.session.commit()
